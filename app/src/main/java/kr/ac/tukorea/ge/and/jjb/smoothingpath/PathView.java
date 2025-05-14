@@ -3,12 +3,15 @@ package kr.ac.tukorea.ge.and.jjb.smoothingpath;
 
 import android.content.Context;
 import android.util.AttributeSet;
+import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 
 import androidx.annotation.Nullable;
 
 public class PathView extends View {
-    public Pathview(Context context)
+    private static final String TAG = PathView.class.getSimpleName();
+    public PathView(Context context)
     {
         super(context);
         init();
@@ -20,6 +23,13 @@ public class PathView extends View {
     }
 
     private void init(){
+    }
 
+    public boolean onTouchEvent(MotionEvent event)
+    {
+        float x = event.getX();
+        float y = event.getY();
+        Log.d("TouchEvent : action =" + event.getAction() + "pos=" + x + "," + y);
+        return super.onTouchEvent(event);
     }
 }
